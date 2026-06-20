@@ -576,12 +576,7 @@
     startQuiz(null);
   });
   document.getElementById('heroStartBtn').addEventListener('click', ()=>{
-    const last = localStorage.getItem('ti_last_view');
-    if(last && MOD_ORDER.includes(last)){
-      goTo(last);
-    } else {
-      goTo('bia');
-    }
+    startQuiz(null);
   });
 
   function renderQuizQuestion(){
