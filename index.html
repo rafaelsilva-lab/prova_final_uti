@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Terapia Intensiva — Guia de Revisão | Santa Casa BH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ======================= TOPO / HEADER ======================= -->
+<header class="topbar">
+  <div class="topbar__inner">
+    <button class="topbar__menu" id="menuBtn" aria-label="Abrir módulos">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="topbar__brand">
+      <span class="topbar__brand-mark" aria-hidden="true">e</span>
+      <div class="topbar__brand-text">
+        <strong>Terapia Intensiva</strong>
+        <small>Faculdade de Saúde Santa Casa BH</small>
+      </div>
+    </div>
+    <button class="topbar__quiz" id="openQuizBtn" aria-label="Modo revisão rápida">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L14.5 9H21.5L15.5 13.5L18 21L12 16.5L6 21L8.5 13.5L2.5 9H9.5L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+  <div class="progressbar"><div class="progressbar__fill" id="progressFill"></div></div>
+</header>
+
+<!-- ======================= DRAWER DE MÓDULOS ======================= -->
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<nav class="drawer" id="drawer" aria-label="Módulos de estudo">
+  <div class="drawer__head">
+    <span>Módulos</span>
+    <button id="drawerClose" aria-label="Fechar">&times;</button>
+  </div>
+  <ul class="drawer__list">
+    <li><a href="#inicio" data-mod="inicio" data-goto="inicio"><span class="drawer__ico">🏠</span>Início</a></li>
+    <li><a href="#bia" data-mod="bia" data-goto="bia"><span class="drawer__ico">🎈</span>Balão Intra-aórtico</a></li>
+    <li><a href="#piapic" data-mod="piapic" data-goto="piapic"><span class="drawer__ico">🧠</span>PIA &amp; PIC</a></li>
+    <li><a href="#hemo" data-mod="hemo" data-goto="hemo"><span class="drawer__ico">💉</span>Monitorização Hemodinâmica</a></li>
+    <li><a href="#marcapasso" data-mod="marcapasso" data-goto="marcapasso"><span class="drawer__ico">🔋</span>Marcapasso</a></li>
+    <li><a href="#vm" data-mod="vm" data-goto="vm"><span class="drawer__ico">🫁</span>Ventilação Mecânica</a></li>
+    <li class="drawer__divider"></li>
+    <li><a href="#" id="drawerQuizLink"><span class="drawer__ico">⚡</span>Revisão rápida (flashcards)</a></li>
+  </ul>
+</nav>
+
+<main id="main">
+
+  <!-- ======================= HERO / INÍCIO ======================= -->
+  <section class="view" id="inicio" data-view="inicio">
+    <div class="hero">
+      <div class="hero__waveform" aria-hidden="true">
+        <svg viewBox="0 0 400 90" preserveAspectRatio="none" id="heroWave">
+          <path id="heroWavePath" d="M0,45 L400,45" />
+        </svg>
+      </div>
+      <p class="hero__eyebrow">Turma 8N · Prova final</p>
+      <h1 class="hero__title">Cuidados<br>Intensivos</h1>
+      <p class="hero__sub">Cinco monitorizações, um leito de UTI. Revise cateteres, curvas, valores de referência e atribuições da equipe — no ritmo do seu plantão de estudos.</p>
+
+      <div class="hero__stats">
+        <div class="hero__stat"><strong id="statCards">—</strong><span>conceitos-chave</span></div>
+        <div class="hero__stat"><strong>5</strong><span>módulos</span></div>
+        <div class="hero__stat"><strong id="statQuiz">—</strong><span>questões de revisão</span></div>
+      </div>
+
+      <button class="hero__cta" id="heroStartBtn">Continuar de onde parei</button>
+    </div>
+
+    <div class="moduletiles">
+      <article class="tile" data-goto="bia">
+        <div class="tile__icon" style="--tile-c:#7500AF"><svg viewBox="0 0 48 48" fill="none"><ellipse cx="24" cy="20" rx="10" ry="14" stroke="currentColor" stroke-width="2.2"/><path d="M24 34v10M18 44h12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+        <h3>Balão Intra-aórtico</h3>
+        <p>Contrapulsação diastólica, console, indicações e cuidados pós-implante.</p>
+        <span class="tile__count" data-count-for="bia">0 tópicos</span>
+      </article>
+      <article class="tile" data-goto="piapic">
+        <div class="tile__icon" style="--tile-c:#1888E2"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="18" r="9" stroke="currentColor" stroke-width="2.2"/><path d="M14 38c2-6 6-9 10-9s8 3 10 9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+        <h3>PIA &amp; PIC</h3>
+        <p>Pressão intra-abdominal, intracraniana, PPC e síndrome compartimental.</p>
+        <span class="tile__count" data-count-for="piapic">0 tópicos</span>
+      </article>
+      <article class="tile" data-goto="hemo">
+        <div class="tile__icon" style="--tile-c:#B0247A"><svg viewBox="0 0 48 48" fill="none"><path d="M24 40s-14-8.6-14-19A8.5 8.5 0 0124 15.5 8.5 8.5 0 0138 21c0 10.4-14 19-14 19z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg></div>
+        <h3>Monitorização Hemodinâmica</h3>
+        <p>PAI, teste de Allen, PVC e atribuições da equipe de enfermagem.</p>
+        <span class="tile__count" data-count-for="hemo">0 tópicos</span>
+      </article>
+      <article class="tile" data-goto="marcapasso">
+        <div class="tile__icon" style="--tile-c:#E8553D"><svg viewBox="0 0 48 48" fill="none"><path d="M6 26h8l4-12 8 20 4-12h12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Marcapasso</h3>
+        <p>Definitivo, transcutâneo e transvenoso — indicações e assistência.</p>
+        <span class="tile__count" data-count-for="marcapasso">0 tópicos</span>
+      </article>
+      <article class="tile" data-goto="vm">
+        <div class="tile__icon" style="--tile-c:#2D9D78"><svg viewBox="0 0 48 48" fill="none"><path d="M24 8c-7 0-9 6-9 11 0 8 4 10 4 17a5 5 0 0010 0c0-7 4-9 4-17 0-5-2-11-9-11z" stroke="currentColor" stroke-width="2.2"/></svg></div>
+        <h3>Ventilação Mecânica</h3>
+        <p>FiO₂, PEEP, modalidades de VM e atribuições no desmame.</p>
+        <span class="tile__count" data-count-for="vm">0 tópicos</span>
+      </article>
+    </div>
+
+    <footer class="sitefoot">
+      <p>Material de revisão produzido a partir dos slides da disciplina — Profª. Enilce Moreira.<br>Use como apoio de estudo; consulte sempre o protocolo institucional vigente.</p>
+    </footer>
+  </section>
+
+  <!-- ======================= MÓDULO: BIA ======================= -->
+  <section class="view module" id="bia" data-view="bia" data-accent="#7500AF">
+    <div class="modhead">
+      <button class="modhead__back" data-goto="inicio" aria-label="Voltar">←</button>
+      <div>
+        <p class="modhead__eyebrow">Módulo 01</p>
+        <h2 class="modhead__title">Balão Intra-aórtico</h2>
+      </div>
+    </div>
+    <div class="modnav" data-modnav="bia"></div>
+    <div class="modbody" data-modbody="bia"></div>
+  </section>
+
+  <!-- ======================= MÓDULO: PIA & PIC ======================= -->
+  <section class="view module" id="piapic" data-view="piapic" data-accent="#1888E2">
+    <div class="modhead">
+      <button class="modhead__back" data-goto="inicio" aria-label="Voltar">←</button>
+      <div>
+        <p class="modhead__eyebrow">Módulo 02</p>
+        <h2 class="modhead__title">PIA &amp; PIC</h2>
+      </div>
+    </div>
+    <div class="modnav" data-modnav="piapic"></div>
+    <div class="modbody" data-modbody="piapic"></div>
+  </section>
+
+  <!-- ======================= MÓDULO: HEMODINÂMICA ======================= -->
+  <section class="view module" id="hemo" data-view="hemo" data-accent="#B0247A">
+    <div class="modhead">
+      <button class="modhead__back" data-goto="inicio" aria-label="Voltar">←</button>
+      <div>
+        <p class="modhead__eyebrow">Módulo 03</p>
+        <h2 class="modhead__title">Monitorização Hemodinâmica</h2>
+      </div>
+    </div>
+    <div class="modnav" data-modnav="hemo"></div>
+    <div class="modbody" data-modbody="hemo"></div>
+  </section>
+
+  <!-- ======================= MÓDULO: MARCAPASSO ======================= -->
+  <section class="view module" id="marcapasso" data-view="marcapasso" data-accent="#E8553D">
+    <div class="modhead">
+      <button class="modhead__back" data-goto="inicio" aria-label="Voltar">←</button>
+      <div>
+        <p class="modhead__eyebrow">Módulo 04</p>
+        <h2 class="modhead__title">Marcapasso</h2>
+      </div>
+    </div>
+    <div class="modnav" data-modnav="marcapasso"></div>
+    <div class="modbody" data-modbody="marcapasso"></div>
+  </section>
+
+  <!-- ======================= MÓDULO: VM ======================= -->
+  <section class="view module" id="vm" data-view="vm" data-accent="#2D9D78">
+    <div class="modhead">
+      <button class="modhead__back" data-goto="inicio" aria-label="Voltar">←</button>
+      <div>
+        <p class="modhead__eyebrow">Módulo 05</p>
+        <h2 class="modhead__title">Ventilação Mecânica</h2>
+      </div>
+    </div>
+    <div class="modnav" data-modnav="vm"></div>
+    <div class="modbody" data-modbody="vm"></div>
+  </section>
+
+</main>
+
+<!-- ======================= BOTTOM TAB BAR (mobile) ======================= -->
+<nav class="tabbar" aria-label="Navegação principal">
+  <button class="tabbar__btn" data-goto="inicio" data-tab="inicio">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M4 11.5L12 5l8 6.5M6 10v9h12v-9" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+    <span>Início</span>
+  </button>
+  <button class="tabbar__btn" data-goto="bia" data-tab="bia">
+    <svg viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="10" rx="5" ry="7" stroke="currentColor" stroke-width="1.8"/></svg>
+    <span>BIA</span>
+  </button>
+  <button class="tabbar__btn" data-goto="piapic" data-tab="piapic">
+    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="9" r="4.5" stroke="currentColor" stroke-width="1.8"/></svg>
+    <span>PIA/PIC</span>
+  </button>
+  <button class="tabbar__btn" data-goto="hemo" data-tab="hemo">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M12 19s-7-4.3-7-9.5A4.5 4.5 0 0112 7a4.5 4.5 0 017 2.5C19 14.7 12 19 12 19z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+    <span>Hemo</span>
+  </button>
+  <button class="tabbar__btn" data-goto="marcapasso" data-tab="marcapasso">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M3 13h4l2-6 4 10 2-6h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>MP</span>
+  </button>
+  <button class="tabbar__btn" data-goto="vm" data-tab="vm">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M12 4c-3.5 0-4.5 3-4.5 5.5 0 4 2 5 2 8.5a2.5 2.5 0 005 0c0-3.5 2-4.5 2-8.5C16.5 7 15.5 4 12 4z" stroke="currentColor" stroke-width="1.8"/></svg>
+    <span>VM</span>
+  </button>
+</nav>
+
+<!-- ======================= QUIZ MODAL ======================= -->
+<div class="quiz" id="quizModal" aria-hidden="true">
+  <div class="quiz__backdrop" id="quizBackdrop"></div>
+  <div class="quiz__sheet">
+    <div class="quiz__head">
+      <button id="quizClose" aria-label="Fechar revisão">&times;</button>
+      <span id="quizModuleLabel">Revisão rápida</span>
+      <span id="quizCounter">0/0</span>
+    </div>
+    <div class="quiz__progress"><div id="quizProgressFill"></div></div>
+
+    <div class="quiz__body" id="quizBody">
+      <!-- conteúdo dinâmico via JS -->
+    </div>
+
+    <div class="quiz__foot" id="quizFoot">
+      <button class="quiz__navbtn" id="quizPrev">Anterior</button>
+      <button class="quiz__navbtn quiz__navbtn--primary" id="quizNext">Próxima</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast de conclusão -->
+<div class="toast" id="toast"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
